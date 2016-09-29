@@ -13,6 +13,7 @@ This package is used to simulate a UGV in ROS/Gazebo
 ```
 $ roscore
 $ roslaunch DiscreteControlsGroup empty_world.launch 
+$ rosrun DiscreteControlsGroup ugv.py
 
 ```
 

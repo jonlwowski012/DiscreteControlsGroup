@@ -10,7 +10,7 @@ This package is used to simulate a UGV in ROS/Gazebo
 
 ## Setup Bashrc File
 ```
-sudo gedit ~/.bashrc
+$ sudo gedit ~/.bashrc
 
 # Paste the following lines at the bottom of the file
 
@@ -19,6 +19,12 @@ source /home/<username>/catkin_ws/devel/setup.bash
 
 ```
 
+### If you have permissions errors
+```
+$ roscd DiscreteControlsGroup
+$ cd ..
+$ sudo chmod -R 777 DiscreteControlsGroup
+```
 
 ## How to Run with viewing in Gazebo
 ```

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<launch>
+ 
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+     <arg name="world_name" value="$(find DiscreteControlsGroup)/worlds/empty_world.world"/>
+  </include>
+
+  <arg name="model" default="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+
+   <!-- workaround https://github.com/ros-simulation/gazebo_ros_pkgs/pull/134 -->
+   <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(arg model)'" /> -->
+
+   <include file="$(find gazebo_plugins)/test/multi_robot_scenario/launch/pioneer3dx.gazebo.launch">
+       <arg name="robot_name" value="p3dx" />
+       <arg name="robot_position" value="-x 0.0 -y 0.0 -z 0.01" />
+   </include>
+
+   <include file="$(find gazebo_plugins)/test/multi_robot_scenario/launch/pioneer3dx.gazebo.launch">
+       <arg name="robot_name" value="p3dx2" />
+       <arg name="robot_position" value="-x 1.0 -y 0.0 -z 0.01" />
+   </include>
+
+
+</launch>

@@ -36,7 +36,7 @@ def ugv_location_sub():
   
 ###### Function to control ugv. Use Linear X and angular Z   #######
 def set_velocity_ugv(lx1, ly1, lz1, ax1, ay1, az1):   
-    pub1 = rospy.Publisher('/p3dx/cmd_vel', Twist, queue_size=10)
+    pub1 = rospy.Publisher('/p2os/cmd_vel', Twist, queue_size=10)
     r = rospy.Rate(10) # 10hz
     command1 = Twist()
     command1.linear.x = lx1
@@ -53,7 +53,7 @@ def set_velocity_ugv(lx1, ly1, lz1, ax1, ay1, az1):
 def goto_target(x,y):
 	#### Insert Controller Here in place of two lines below  #####
 	while(1):
-		set_velocity_ugv(.5, 0, 0, 0, 0, 1.0)
+		set_velocity_ugv(.1, 0, 0, 0, 0, .1)
 
 	
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
 	rospy.init_node('ugv_ros', anonymous=True)
 	
 	### Subscribe to UGV Location  ###
-	ugv_location_sub()
+	#ugv_location_sub()
 	
 	try:
 		goto_target(5,5)
